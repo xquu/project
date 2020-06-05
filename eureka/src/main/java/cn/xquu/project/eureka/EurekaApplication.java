@@ -1,4 +1,4 @@
-package cn.xquu.eureka;
+package cn.xquu.project.eureka;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
