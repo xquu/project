@@ -438,8 +438,10 @@
                 <div class="footer-inner">
                     <div class="footer-content">
 						<span class="bigger-120">
-							<span class="blue bolder">花小七</span>
-							后台管理系统 &copy; 2020
+                            <i class="ace-icon fa fa-leaf green"></i>
+							<span class="blue bolder"> 花 SEVEN</span>
+                            <span class="light-grey" id="id-text2"> SKYLINE Copyright&copy; 2020</span>
+
 						</span>
 
                         &nbsp; &nbsp;

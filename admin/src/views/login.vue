@@ -7,11 +7,15 @@
             <div class="login-container">
               <div class="center">
                 <h1>
+                  <div class="space-6"></div>
+                  <div class="space-6"></div>
+                  <div class="space-6"></div>
+                  <div class="space-6"></div>
                   <i class="ace-icon fa fa-leaf green"></i>
-                  <span class="red">花小七</span>
-                  <span class="white" id="id-text2">Application</span>
+                  <span class="red">花 SEVEN</span>
+                  <span class="white" id="id-text2"> SKYLINE</span>
                 </h1>
-                <h4 class="blue" id="id-company-text">&copy; xquu.cn</h4>
+
               </div>
 
               <div class="space-6"></div>
@@ -22,7 +26,7 @@
                     <div class="widget-main">
                       <h4 class="header blue lighter bigger">
                         <i class="ace-icon fa fa-coffee green"></i>
-                       后台管理
+                       天幕引擎后台指挥研究中心
                       </h4>
 
                       <div class="space-6"></div>
@@ -31,14 +35,14 @@
                         <fieldset>
                           <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" placeholder="用户名" />
+															<input type="text" class="form-control" placeholder="国际控制中心特权通行证令" />
 															<i class="ace-icon fa fa-user"></i>
 														</span>
                           </label>
 
                           <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" placeholder="密码" />
+															<input type="password" class="form-control" placeholder="指挥研究中心授权通行密令" />
 															<i class="ace-icon fa fa-lock"></i>
 														</span>
                           </label>
@@ -48,16 +52,19 @@
                           <div class="clearfix">
                             <label class="inline">
                               <input type="checkbox" class="ace" />
-                              <span class="lbl"> 记住密码</span>
+                              <span class="lbl"> 监控中心</span>
                             </label>
 
                             <button type="button" @click="onLogin()" class="width-35 pull-right btn btn-sm btn-primary">
                               <i class="ace-icon fa fa-key"></i>
-                              <span class="bigger-110">登&nbsp;录</span>
+                              <span class="bigger-110">请求接入</span>
                             </button>
                           </div>
-                          <div class="space-6"></div>
                           <div class="space-4"></div>
+                          <div class="space-6"></div>
+                          <div class="center">
+                            <h4 class="light-grey" id="id-company-text">Copyright&copy; xquu.cn</h4>
+                          </div>
                         </fieldset>
                       </form>
 
