@@ -192,9 +192,11 @@
 </template>
 
 <script>
-  $('body').attr('class', 'login-layout light-login')
   export default {
     name: "login",
+    mounted() {
+      $('body').attr('class', 'login-layout light-login')
+    },
     methods:{
       onLogin: function () {
         this.$router.push("/admin")
