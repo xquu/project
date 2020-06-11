@@ -15,8 +15,9 @@
                 <div class="navbar-header pull-left">
                     <a href="index.html" class="navbar-brand">
                         <small>
-                            <i class="fa fa-leaf"></i>
-                            Ace Admin
+                            <i class="fa fa-leaf green"></i>
+                            <span class="light-red"> 花 SEVEN</span>
+                            <span class="light-grey" > SKYLINE</span>
                         </small>
                     </a>
                 </div>
@@ -371,7 +372,7 @@
                             <li class="">
                                 <a href="tables.html">
                                     <i class="menu-icon fa fa-caret-right"></i>
-                                    Simple &amp; Dynamic
+                                    用户管理
                                 </a>
 
                                 <b class="arrow"></b>
@@ -380,7 +381,7 @@
                             <li class="">
                                 <a href="jqgrid.html">
                                     <i class="menu-icon fa fa-caret-right"></i>
-                                    jqGrid plugin
+                                    角色管理
                                 </a>
 
                                 <b class="arrow"></b>
