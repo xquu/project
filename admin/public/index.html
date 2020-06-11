@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta charset="utf-8"/>
-    <title>登录 - 后台管理</title>
+    <title>花小七 - 后台管理</title>
     <meta name="description" content="用户登录页面"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
 
@@ -25,6 +25,13 @@
     <!--[if lte IE 9]>
     <link rel="stylesheet" href="<%= BASE_URL %>ace/assets/css/ace-ie.min.css"/>
     <![endif]-->
+    <!-- bootstrap & fontawesome -->
+
+    <!-- page specific plugin styles -->
+    <link rel="stylesheet" href="<%= BASE_URL %>ace/assets/css/ace-skins.min.css" />
+
+    <!-- ace settings handler -->
+    <script src="<%= BASE_URL %>ace/assets/js/ace-extra.min.js"></script>
 
     <!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
 
@@ -39,9 +46,6 @@
         Please enable it to continue.</strong>
 </noscript>
 <div id="app"></div>
-<!-- built files will be auto injected -->
-
-<!-- basic scripts -->
 
 <!--[if !IE]> -->
 <script src="<%= BASE_URL %>ace/assets/js/jquery-2.1.4.min.js"></script>
@@ -55,6 +59,13 @@
     if ('ontouchstart' in document.documentElement) document.write("<script src='<%= BASE_URL %>ace/assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
 </script>
 
+<script src="<%= BASE_URL %>ace/assets/js/bootstrap.min.js"></script>
+
+<!-- page specific plugin scripts -->
+
+<!-- ace scripts -->
+<script src="<%= BASE_URL %>ace/assets/js/ace-elements.min.js"></script>
+<script src="<%= BASE_URL %>ace/assets/js/ace.min.js"></script>
 
 </body>
 </html>
