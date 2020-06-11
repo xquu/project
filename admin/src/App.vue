@@ -53,7 +53,7 @@
 
                             <button type="button" class="width-35 pull-right btn btn-sm btn-primary">
                               <i class="ace-icon fa fa-key"></i>
-                              <span class="bigger-110">登 录</span>
+                              <span class="bigger-110">登&nbsp;&nbsp;录</span>
                             </button>
                           </div>
 
