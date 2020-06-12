@@ -1,5 +1,6 @@
-package cn.xquu.project.business;
+package cn.xquu.project.business.config;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -10,7 +11,8 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableEurekaClient
-@ComponentScan("cn.xquu")
+@ComponentScan("cn.xquu.project")
+@MapperScan("cn.xquu.project.server.mapper")
 public class BusinessApplication {
     private static final Logger log = LoggerFactory.getLogger(BusinessApplication.class);
     public static void main(String[] args) {
