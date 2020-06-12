@@ -1,6 +1,6 @@
-package cn.xquu.project.server.service.impl;
+package cn.xquu.project.server.impl;
 
-import cn.xquu.project.server.service.TestService;
+import cn.xquu.project.server.TestService;
 import org.springframework.stereotype.Service;
 
 /**
