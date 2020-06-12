@@ -17,6 +17,9 @@ public class BusinessApplication {
     private static final Logger log = LoggerFactory.getLogger(BusinessApplication.class);
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(BusinessApplication.class, args);
-        log.info("项目启动成功！business地址:\t http://localhost:{}/business", context.getEnvironment().getProperty("server.port"));
+        log.info("{}项目启动成功！地址:  http://localhost:{}/{}}",
+                context.getEnvironment().getProperty("spring.application.name"),
+                context.getEnvironment().getProperty("server.port"),
+                context.getEnvironment().getProperty("spring.application.name"));
     }
 }

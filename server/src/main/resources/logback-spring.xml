@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
+    <!-- 读取spring.application.name中的属性来生成日志文件名 -->
+    <springProperty scope="context" name="sysName" source="spring.application.name" defaultValue="default"/>
     <!-- 修改一下路径-->
-    <property name="PATH" value="/www/wwwroot/logs/project/system"></property>
-
+    <property name="PATH" value="/www/wwwroot/logs/project/${sysName}"></property>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <!--            <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight(%-5level) %blue(%-50logger{50}:%-4line) %msg%n</Pattern>-->
-            <Pattern>%d [%yellow(%t)] %highlight(%p) %F-%blue(%M):%L - %green(%m) %n</Pattern>
+            <Pattern>%d %highlight(%p) %yellow(%t) %F-%blue(%M):%L - %green(%m) %n</Pattern>
         </encoder>
     </appender>
 

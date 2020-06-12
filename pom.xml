@@ -40,7 +40,12 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
+        <!-- 引入server依赖 -->
+        <dependency>
+            <groupId>cn.xquu</groupId>
+            <artifactId>server</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
