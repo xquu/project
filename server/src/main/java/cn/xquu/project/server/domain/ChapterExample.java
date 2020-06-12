@@ -2,7 +2,6 @@ package cn.xquu.project.server.domain;
 
 import java.util.ArrayList;
 import java.util.List;
-
 public class ChapterExample {
     protected String orderByClause;
 

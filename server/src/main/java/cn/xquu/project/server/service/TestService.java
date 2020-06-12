@@ -1,4 +1,4 @@
-package cn.xquu.project.server;
+package cn.xquu.project.server.service;
 
 import org.springframework.stereotype.Service;
 
