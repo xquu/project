@@ -13,7 +13,7 @@ public class GetewayApplication {
     private static final Logger log = LoggerFactory.getLogger(GetewayApplication.class);
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(GetewayApplication.class, args);
-        log.info("{}项目启动成功！地址:  http://localhost:{}/{}}",
+        log.info("{}项目启动成功！地址:  http://localhost:{}/{}",
                 context.getEnvironment().getProperty("spring.application.name"),
                 context.getEnvironment().getProperty("server.port"),
                 context.getEnvironment().getProperty("spring.application.name"));
