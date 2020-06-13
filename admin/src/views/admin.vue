@@ -325,38 +325,15 @@
 
             <div id="sidebar" class="sidebar                  responsive                    ace-save-state">
 
-
-                <div class="sidebar-shortcuts" id="sidebar-shortcuts">
-                    <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-                        <button class="btn btn-success">
-                            <i class="ace-icon fa fa-signal"></i>
-                        </button>
-
-                        <button class="btn btn-info">
-                            <i class="ace-icon fa fa-pencil"></i>
-                        </button>
-
-                        <button class="btn btn-warning">
-                            <i class="ace-icon fa fa-users"></i>
-                        </button>
-
-                        <button class="btn btn-danger">
-                            <i class="ace-icon fa fa-cogs"></i>
-                        </button>
-                    </div>
-
-                    <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
-                        <span class="btn btn-success"></span>
-
-                        <span class="btn btn-info"></span>
-
-                        <span class="btn btn-warning"></span>
-
-                        <span class="btn btn-danger"></span>
-                    </div>
-                </div><!-- /.sidebar-shortcuts -->
-
                 <ul class="nav nav-list">
+                    <li class="">
+                        <a href="index.html">
+                            <i class="menu-icon fa fa-tachometer"></i>
+                            <span class="menu-text"> 欢迎 </span>
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
 
                     <li class="active open">
                         <a href="#" class="dropdown-toggle">
@@ -382,6 +359,42 @@
                                 <a href="jqgrid.html">
                                     <i class="menu-icon fa fa-caret-right"></i>
                                     角色管理
+                                </a>
+
+                                <b class="arrow"></b>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                </ul><!-- /.nav-list -->
+
+                <ul class="nav nav-list">
+
+                    <li class="active open">
+                        <a href="#" class="dropdown-toggle">
+                            <i class="menu-icon fa fa-list"></i>
+                            <span class="menu-text"> 课程管理 </span>
+
+                            <b class="arrow fa fa-angle-down"></b>
+                        </a>
+
+                        <b class="arrow"></b>
+
+                        <ul class="submenu">
+                            <li class="">
+                                <a href="tables.html">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    大章管理
+                                </a>
+
+                                <b class="arrow"></b>
+                            </li>
+
+                            <li class="">
+                                <a href="jqgrid.html">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    小节管理
                                 </a>
 
                                 <b class="arrow"></b>
@@ -475,7 +488,7 @@
     export default {
         name: "admin",
         mounted() {
-       //     $('body').removeClass('login-layout light-login')
+            //     $('body').removeClass('login-layout light-login')
             $('body').attr('class', 'no-skin')
         }
     }
