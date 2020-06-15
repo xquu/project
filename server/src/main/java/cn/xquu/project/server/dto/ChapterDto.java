@@ -3,7 +3,7 @@ package cn.xquu.project.server.dto;
 public class ChapterDto {
     private String id;
 
-    private String coutseId;
+    private String courseId;
 
     private String name;
 
@@ -15,12 +15,12 @@ public class ChapterDto {
         this.id = id;
     }
 
-    public String getCoutseId() {
-        return coutseId;
+    public String getcourseId() {
+        return courseId;
     }
 
-    public void setCoutseId(String coutseId) {
-        this.coutseId = coutseId;
+    public void setcourseId(String courseId) {
+        this.courseId = courseId;
     }
 
     public String getName() {
@@ -38,7 +38,7 @@ public class ChapterDto {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", coutseId=").append(coutseId);
+        sb.append(", courseId=").append(courseId);
         sb.append(", name=").append(name);
         sb.append("]");
         return sb.toString();

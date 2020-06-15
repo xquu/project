@@ -16,7 +16,7 @@ import java.util.List;
  * @date ：2020-06-12 11:28
  */
 @RestController
-@RequestMapping(value = "admin",produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "admin/chapter",produces = MediaType.APPLICATION_JSON_VALUE)
 //@RequestMapping(value = "chapter",produces = MediaType.APPLICATION_XML_VALUE)
 public class ChapterController {
     @Resource

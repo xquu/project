@@ -323,7 +323,7 @@
         <div class="main-container ace-save-state" id="main-container">
 
 
-            <div id="sidebar" class="sidebar                  responsive                    ace-save-state">
+            <div id="sidebar" class="sidebar responsive ace-save-state">
 
                 <ul class="nav nav-list">
                     <li class="" id="welcome-sidebar">
@@ -508,7 +508,7 @@
                 $("#" + id).addClass("active open")
             },
             activeSidebar:function (id) {
-                console.log("id====>",id)
+            //    console.log("id====>",id)
                 //兄弟菜单去掉active样式，自身增加active样式
                 $("#" + id).siblings().removeClass("active");
                 $("#" + id).siblings().find("li").removeClass("active");
