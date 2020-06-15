@@ -335,8 +335,8 @@
                         <b class="arrow"></b>
                     </li>
 
-                    <li class="active open" >
-                        <a href="#" class="dropdown-toggle" @click="isOpen()">
+                    <li class="active open" id="system-sidebar" @click="isOpen('system-sidebar')" >
+                        <a href="#" class="dropdown-toggle">
                             <i class="menu-icon fa fa-list"></i>
                             <span class="menu-text"> 系统管理 </span>
 
@@ -367,9 +367,7 @@
                     </li>
 
 
-                </ul><!-- /.nav-list -->
 
-                <ul class="nav nav-list">
 
                     <li class="active open">
                         <a href="#" class="dropdown-toggle">
@@ -490,16 +488,27 @@
         mounted() {
             $('body').removeClass('login-layout light-login')
             $('body').attr('class', 'no-skin')
+            this.activeSidebar(this.$route.name.replace("/","-")+"-sidebar")
+        },
+        watch:{
+            $route:{
+                handler: function(val,oldVal) {
+                    console.log("---->页面跳转:",val,oldVal)
+                    this.$nextTick(()=>{//页面加载完毕后执行
+                        this.activeSidebar(this.$route.name.replace("/","-")+"-sidebar")
+                    })
+                }
+            }
         },
         methods:{
             login:function () {
                 this.$router.push("/admin")
             },
-            isOpen:function(){
-
-
+            isOpen:function(id){
+                $("#" + id).addClass("active open")
             },
             activeSidebar:function (id) {
+                console.log("id====>",id)
                 //兄弟菜单去掉active样式，自身增加active样式
                 $("#" + id).siblings().removeClass("active");
                 $("#" + id).siblings().find("li").removeClass("active");
