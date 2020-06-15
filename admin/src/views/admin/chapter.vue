@@ -101,7 +101,7 @@
         },
         methods:{
             list:function () {
-                this.$axios.get("http://127.0.0.1:9002/business/admin/chapter/list")
+                this.$axios.get("http://127.0.0.1:9000/business/admin/chapter/list")
                     .then((res)=>{
                         console.log("查询大章结果：",res)
                         this.chapters = res.data
