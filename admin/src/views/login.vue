@@ -206,7 +206,7 @@
     },
     methods:{
       onLogin: function () {
-        this.$router.push("/admin")
+        this.$router.push("/welcome")
       }
     }
   }
