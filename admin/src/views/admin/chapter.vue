@@ -1,10 +1,15 @@
 <template>
     <div>
         <p>
+            <button @click="add()" class="btn btn-white btn-default btn-round">
+             <i class="ace-icon fa fa-edit"></i>
+             新增
+            </button>
+            &nbsp;
             <button @click="list(1)" class="btn btn-white btn-default btn-round">
-            <i class="ace-icon fa fa-refresh"></i>
-            刷新
-        </button>
+             <i class="ace-icon fa fa-refresh"></i>
+             刷新
+            </button>
         </p>
         <!-- 分页插件 -->
         <pagination ref="pagination" v-bind:list="list"  v-bind:itemCount="8"></pagination>
@@ -94,6 +99,37 @@
 
         </tbody>
     </table>
+
+        <div class="modal" id="form-modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">表单</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label>名称</label>
+                                <input type="text-muted" class="form-control"  aria-describedby="emailHelp" placeholder="名称">
+                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            </div>
+                            <div class="form-group">
+                                <label>课程ID</label>
+                                <input type="text-muted" class="form-control" placeholder="课程ID">
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">取 消</button>&nbsp;
+                        <button type="button" class="btn btn-primary">保 存</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -113,6 +149,13 @@
            this.list(1)
         },
         methods:{
+            /**
+             * 点击【新增】
+             */
+            add() {
+                this.chapter = {};
+                $("#form-modal").modal("show");
+            },
             list:function (page) {
                 this.$axios.post("http://127.0.0.1:9000/business/admin/chapter/list",{
                     page:page,
