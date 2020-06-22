@@ -5,6 +5,7 @@ import cn.xquu.project.server.domain.ChapterExample;
 import cn.xquu.project.server.dto.ChapterDto;
 import cn.xquu.project.server.mapper.ChapterMapper;
 import cn.xquu.project.server.service.ChapterService;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +25,9 @@ public class ChapterServiceImpl implements ChapterService {
 
     @Override
     public List<ChapterDto> list() {
+        //分页从1开始,作用于距离最近的select语句
+        PageHelper.startPage(1,1);
+
         ChapterExample chapterExample = new ChapterExample();
         List<ChapterDto> chapterDtoList = new ArrayList<>();
         List<Chapter> chapterList = chapterMapper.selectByExample(chapterExample);
