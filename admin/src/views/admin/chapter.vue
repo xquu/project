@@ -1,11 +1,13 @@
 <template>
     <div>
         <p>
-            <button @click="list()" class="btn btn-white btn-default btn-round">
+            <button @click="list(1)" class="btn btn-white btn-default btn-round">
             <i class="ace-icon fa fa-refresh"></i>
             刷新
         </button>
         </p>
+        <!-- 分页插件 -->
+        <pagination ref="pagination" v-bind:list="list"  v-bind:itemCount="8"></pagination>
         <table id="simple-table" class="table  table-bordered table-hover">
         <thead>
         <tr>
@@ -96,7 +98,9 @@
 </template>
 
 <script>
+    import Pagination from "../../components/pagination.vue";
     export default {
+        components: {Pagination},
         name: "chapter",
         data:function(){
             return {
@@ -105,17 +109,20 @@
         },
 
         mounted() {
-           this.list()
+           this.$refs.pagination.size = 5
+           this.list(1)
         },
         methods:{
-            list:function () {
+            list:function (page) {
                 this.$axios.post("http://127.0.0.1:9000/business/admin/chapter/list",{
-                    page:1,
-                    size:1
+                    page:page,
+                    size:this.$refs.pagination.size
                 })
                     .then((res)=>{
                         console.log("查询大章结果：",res)
-                        this.chapters = res.data.list
+                        let data = res.data
+                        this.chapters = data.list
+                        this.$refs.pagination.render(page, data.total);
                 })
 
             }
