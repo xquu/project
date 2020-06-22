@@ -101,10 +101,13 @@
         },
         methods:{
             list:function () {
-                this.$axios.get("http://127.0.0.1:9000/business/admin/chapter/list")
+                this.$axios.post("http://127.0.0.1:9000/business/admin/chapter/list",{
+                    page:1,
+                    size:1
+                })
                     .then((res)=>{
                         console.log("查询大章结果：",res)
-                        this.chapters = res.data
+                        this.chapters = res.data.list
                 })
 
             }

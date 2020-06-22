@@ -1,6 +1,7 @@
 package cn.xquu.project.server.service;
 
 import cn.xquu.project.server.dto.ChapterDto;
+import cn.xquu.project.server.dto.PageDto;
 
 import java.util.List;
 
@@ -10,5 +11,5 @@ import java.util.List;
  * @date ：2020-06-10 15:15
  */
 public interface ChapterService {
-    public List<ChapterDto> list();
+    public void list(PageDto pageDto);
 }

@@ -3,9 +3,11 @@ package cn.xquu.project.server.service.impl;
 import cn.xquu.project.server.domain.Chapter;
 import cn.xquu.project.server.domain.ChapterExample;
 import cn.xquu.project.server.dto.ChapterDto;
+import cn.xquu.project.server.dto.PageDto;
 import cn.xquu.project.server.mapper.ChapterMapper;
 import cn.xquu.project.server.service.ChapterService;
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
@@ -24,18 +26,19 @@ public class ChapterServiceImpl implements ChapterService {
     ChapterMapper chapterMapper;
 
     @Override
-    public List<ChapterDto> list() {
+    public void list(PageDto pageDto) {
         //分页从1开始,作用于距离最近的select语句
-        PageHelper.startPage(1,1);
-
+        PageHelper.startPage(pageDto.getPage(),pageDto.getSize());
         ChapterExample chapterExample = new ChapterExample();
         List<ChapterDto> chapterDtoList = new ArrayList<>();
         List<Chapter> chapterList = chapterMapper.selectByExample(chapterExample);
+        PageInfo pageInfo = new PageInfo(chapterList);
+        pageDto.setTotal(pageInfo.getTotal());
         for (Chapter  chapter: chapterList) {
             ChapterDto chapterDto = new ChapterDto();
-            BeanUtils.copyProperties(chapter,chapterDto);
+            BeanUtils.copyProperties(chapter, chapterDto);
             chapterDtoList.add(chapterDto);
         }
-        return chapterDtoList;
+        pageDto.setList(chapterDtoList);
     }
 }
