@@ -43,56 +43,15 @@
             <td>{{chapter.courseId}}</td>
             <td>
                 <div class="hidden-sm hidden-xs btn-group">
-                    <button class="btn btn-xs btn-success">
-                        <i class="ace-icon fa fa-check bigger-120"></i>
-                    </button>
-
-                    <button class="btn btn-xs btn-info">
+                    <button class="btn btn-xs btn-info" @click="edit(chapter)">
                         <i class="ace-icon fa fa-pencil bigger-120"></i>
                     </button>
-
-                    <button class="btn btn-xs btn-danger">
+                    <button class="btn btn-xs btn-danger" @click="del(chapter.id)">
                         <i class="ace-icon fa fa-trash-o bigger-120"></i>
                     </button>
-
                     <button class="btn btn-xs btn-warning">
                         <i class="ace-icon fa fa-flag bigger-120"></i>
                     </button>
-                </div>
-
-                <div class="hidden-md hidden-lg">
-                    <div class="inline pos-rel">
-                        <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown"
-                                data-position="auto">
-                            <i class="ace-icon fa fa-cog icon-only bigger-110"></i>
-                        </button>
-
-                        <ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
-                            <li>
-                                <a href="#" class="tooltip-info" data-rel="tooltip" title="View">
-																			<span class="blue">
-																				<i class="ace-icon fa fa-search-plus bigger-120"></i>
-																			</span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
-																			<span class="green">
-																				<i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
-																			</span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
-																			<span class="red">
-																				<i class="ace-icon fa fa-trash-o bigger-120"></i>
-																			</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
             </td>
         </tr>
@@ -153,12 +112,22 @@
             /**
              * 点击【新增】
              */
-            add() {
+            add: function() {
                 this.chapter = {};
-                $("#form-modal").modal("show");
+                $("#form-modal").modal("show")
             },
 
-            list:function (page) {
+            edit: function(chapter) {
+                //使用$.extend 绑定一个空数据，解决vue输入数据绑定更新问题
+                this.chapter = $.extend({},chapter)
+                $("#form-modal").modal("show")
+            },
+
+            del: function (id){
+                console.log(id)
+            },
+
+            list: function (page) {
                 this.$axios.post("http://127.0.0.1:9000/business/admin/chapter/list",{
                     page:page,
                     size:this.$refs.pagination.size
@@ -170,7 +139,7 @@
                 })
             },
 
-            save:function () {
+            save: function () {
                 this.$axios.post("http://127.0.0.1:9000/business/admin/chapter/save",
                 this.chapter).then((res)=>{
                     console.log("添加大章结果：",res)

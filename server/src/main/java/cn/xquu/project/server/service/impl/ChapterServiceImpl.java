@@ -6,11 +6,13 @@ import cn.xquu.project.server.dto.ChapterDto;
 import cn.xquu.project.server.dto.util.PageDto;
 import cn.xquu.project.server.mapper.ChapterMapper;
 import cn.xquu.project.server.service.ChapterService;
+import cn.xquu.project.server.util.CopyUtil;
 import cn.xquu.project.server.util.UuidUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -43,9 +45,20 @@ public class ChapterServiceImpl implements ChapterService {
         pageDto.setList(chapterDtoList);
     }
     public void save(ChapterDto chapterDto){
-        chapterDto.setId(UuidUtil.getShortUuid());
-        Chapter chapter = new Chapter();
-        BeanUtils.copyProperties(chapterDto, chapter);
+        Chapter chapter = CopyUtil.copy(chapterDto, Chapter.class);
+        if(StringUtils.isEmpty(chapterDto.getId())){
+            this.insert(chapter);
+        }else{
+            this.update(chapter);
+        }
+    }
+
+    private void insert(Chapter chapter) {
+        chapter.setId(UuidUtil.getShortUuid());
         chapterMapper.insert(chapter);
+    }
+
+    private void update(Chapter chapter){
+        chapterMapper.updateByPrimaryKey(chapter);
     }
 }
