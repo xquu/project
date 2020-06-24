@@ -94,7 +94,7 @@
 
 <script>
     import Pagination from "../../components/pagination.vue";
-    import swal from 'sweetalert';
+   // import swal from 'sweetalert';
     export default {
         components: {Pagination},
         name: "chapter",
@@ -143,6 +143,7 @@
                     let response = res.data;
                     if(response.success){
                         $("#form-modal").modal("hide");
+                        this.$toast.success("保存成功！")
                         this.list(1);
                     }
                 })
@@ -150,12 +151,14 @@
 
             del: function (id){
                 console.log(id)
+                let swal = this.$toast;
                 swal({
                     title: "是否删除?",
                     text: "删除后不可恢复!您确定删除吗",
                     icon: "warning",
                     buttons: ["取 消", "确 定"],
                     dangerMode: true,
+
                 })
                     .then((willDelete) => {
                         if (willDelete) {
@@ -166,7 +169,7 @@
                                 if(response.success){
                                     swal("删除成功!", {
                                         icon: "success",
-                                        buttons: "确 定",
+                                       // buttons: "确 定",
                                     });
                                     this.list(1)
                                 }else{

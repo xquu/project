@@ -12,6 +12,9 @@ import Axios from "axios"
 Vue.config.productionTip=false
 Vue.prototype.$axios = Axios
 
+import Toast from "../plugins/toast"
+Vue.prototype.$toast = Toast
+
 //import Admin from "@/views/admin.vue"
 // Register Vue Router
 Vue.use(Router)
