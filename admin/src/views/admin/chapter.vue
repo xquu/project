@@ -123,10 +123,6 @@
                 $("#form-modal").modal("show")
             },
 
-            del: function (id){
-                console.log(id)
-            },
-
             list: function (page) {
                 this.$axios.post("http://127.0.0.1:9000/business/admin/chapter/list",{
                     page:page,
@@ -149,7 +145,19 @@
                         this.list(1);
                     }
                 })
+            },
+
+            del: function (id){
+                this.$axios.delete("http://127.0.0.1:9000/business/admin/chapter/delete/"+ id)
+                    .then((res)=>{
+                    console.log("删除大章结果：",res)
+                    let response = res.data;
+                    if(response.success){
+                        this.list(1);
+                    }
+                })
             }
+
         }
     }
 </script>

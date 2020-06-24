@@ -22,7 +22,7 @@ public class ChapterController {
     ChapterService chapterService;
 
 
-    @RequestMapping("list")
+    @PostMapping("list")
     //axios默认以流的方式传递参数，这里加上@RequestBody才行
     private ResponseDto list(@RequestBody PageDto pageDto){
         ResponseDto responseDto = new ResponseDto();
@@ -31,11 +31,18 @@ public class ChapterController {
         return responseDto;
     }
 
-    @RequestMapping("save")
+    @PostMapping("save")
     private ResponseDto save(@RequestBody ChapterDto chapterDto){
         ResponseDto responseDto = new ResponseDto();
         chapterService.save(chapterDto);
         responseDto.setContent(chapterDto);
+        return responseDto;
+    }
+
+    @DeleteMapping("delete/{id}")
+    private ResponseDto save(@PathVariable String id){
+        ResponseDto responseDto = new ResponseDto();
+        chapterService.delete(id);
         return responseDto;
     }
 }

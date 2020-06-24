@@ -12,4 +12,6 @@ public interface ChapterService {
     public void list(PageDto pageDto);
 
     public void save(ChapterDto chapterDto);
+
+    public void delete(String id);
 }
