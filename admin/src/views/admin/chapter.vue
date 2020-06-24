@@ -94,6 +94,7 @@
 
 <script>
     import Pagination from "../../components/pagination.vue";
+    import swal from 'sweetalert';
     export default {
         components: {Pagination},
         name: "chapter",
@@ -148,14 +149,36 @@
             },
 
             del: function (id){
-                this.$axios.delete("http://127.0.0.1:9000/business/admin/chapter/delete/"+ id)
-                    .then((res)=>{
-                    console.log("删除大章结果：",res)
-                    let response = res.data;
-                    if(response.success){
-                        this.list(1);
-                    }
+                console.log(id)
+                swal({
+                    title: "是否删除?",
+                    text: "删除后不可恢复!您确定删除吗",
+                    icon: "warning",
+                    buttons: ["取 消", "确 定"],
+                    dangerMode: true,
                 })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            this.$axios.delete("http://127.0.0.1:9000/business/admin/chapter/delete/"+ id)
+                                .then((res)=>{
+                                console.log("删除大章结果：",res)
+                                let response = res.data;
+                                if(response.success){
+                                    swal("删除成功!", {
+                                        icon: "success",
+                                        buttons: "确 定",
+                                    });
+                                    this.list(1)
+                                }else{
+                                    swal("删除失败!");
+                                }
+                            })
+
+                        }
+                        // else {
+                        //     swal("取消删除!");
+                        // }
+                    })
             }
 
         }
