@@ -1,13 +1,13 @@
 package cn.xquu.project.business.controller.admin;
 
 import cn.xquu.project.server.dto.ChapterDto;
-import cn.xquu.project.server.dto.PageDto;
+import cn.xquu.project.server.dto.util.PageDto;
+import cn.xquu.project.server.dto.util.ResponseDto;
 import cn.xquu.project.server.service.ChapterService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * @author ：小七
@@ -21,10 +21,21 @@ public class ChapterController {
     @Resource
     ChapterService chapterService;
 
+
     @RequestMapping("list")
     //axios默认以流的方式传递参数，这里加上@RequestBody才行
-    private PageDto list(@RequestBody PageDto pageDto){
+    private ResponseDto list(@RequestBody PageDto pageDto){
+        ResponseDto responseDto = new ResponseDto();
         chapterService.list(pageDto);
-        return pageDto;
+        responseDto.setContent(pageDto);
+        return responseDto;
+    }
+
+    @RequestMapping("save")
+    private ResponseDto save(@RequestBody ChapterDto chapterDto){
+        ResponseDto responseDto = new ResponseDto();
+        chapterService.save(chapterDto);
+        responseDto.setContent(chapterDto);
+        return responseDto;
     }
 }

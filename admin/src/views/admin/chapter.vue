@@ -113,19 +113,19 @@
                         <form>
                             <div class="form-group">
                                 <label>名称</label>
-                                <input type="text-muted" class="form-control"  aria-describedby="emailHelp" placeholder="名称">
+                                <input v-model="chapter.name" class="form-control"  aria-describedby="emailHelp" placeholder="名称">
                                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                             </div>
                             <div class="form-group">
                                 <label>课程ID</label>
-                                <input type="text-muted" class="form-control" placeholder="课程ID">
+                                <input v-model="chapter.courseId" class="form-control" placeholder="课程ID">
                             </div>
 
                         </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">取 消</button>&nbsp;
-                        <button type="button" class="btn btn-primary">保 存</button>
+                        <button type="button" class="btn btn-primary" @click="save()">保 存</button>
                     </div>
                 </div>
             </div>
@@ -140,6 +140,7 @@
         name: "chapter",
         data:function(){
             return {
+                chapter:{},
                 chapters:[]
             }
         },
@@ -156,18 +157,29 @@
                 this.chapter = {};
                 $("#form-modal").modal("show");
             },
+
             list:function (page) {
                 this.$axios.post("http://127.0.0.1:9000/business/admin/chapter/list",{
                     page:page,
                     size:this.$refs.pagination.size
+                }).then((res)=>{
+                    console.log("查询大章结果：",res)
+                    let content = res.data.content
+                    this.chapters = content.list
+                    this.$refs.pagination.render(page, content.total);
                 })
-                    .then((res)=>{
-                        console.log("查询大章结果：",res)
-                        let data = res.data
-                        this.chapters = data.list
-                        this.$refs.pagination.render(page, data.total);
-                })
+            },
 
+            save:function () {
+                this.$axios.post("http://127.0.0.1:9000/business/admin/chapter/save",
+                this.chapter).then((res)=>{
+                    console.log("添加大章结果：",res)
+                    let response = res.data;
+                    if(response.success){
+                        $("#form-modal").modal("hide");
+                        this.list(1);
+                    }
+                })
             }
         }
     }

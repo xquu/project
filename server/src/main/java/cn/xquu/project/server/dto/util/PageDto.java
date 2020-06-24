@@ -1,4 +1,4 @@
-package cn.xquu.project.server.dto;
+package cn.xquu.project.server.dto.util;
 
 import java.util.List;
 
