@@ -151,7 +151,7 @@
 
             del: function (id){
                 console.log(id)
-                let swal = this.$toast;
+                let swal = this.$toast.swal;
                 swal({
                     title: "是否删除?",
                     text: "删除后不可恢复!您确定删除吗",

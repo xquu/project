@@ -29,7 +29,6 @@ export default {
         timer: 3000
       })
     },
-    swal:function (config) {
-        Swal(config)
-    }
+    //使用原生的swal调用此方法
+    swal:Swal
 }
