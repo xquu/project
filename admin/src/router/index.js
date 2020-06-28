@@ -12,7 +12,7 @@ import Axios from "axios"
 Vue.config.productionTip=false
 Vue.prototype.$axios = Axios
 
-import Toast from "../plugins/toast"
+import Toast from "../../public/static/plugin/toast/toast.js"
 Vue.prototype.$toast = Toast
 
 //import Admin from "@/views/admin.vue"

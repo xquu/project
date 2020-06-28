@@ -42,7 +42,7 @@
             <td>{{chapter.name}}</td>
             <td>{{chapter.courseId}}</td>
             <td>
-                <div class="hidden-sm hidden-xs btn-group">
+                <div class="btn-group">
                     <button class="btn btn-xs btn-info" @click="edit(chapter)">
                         <i class="ace-icon fa fa-pencil bigger-120"></i>
                     </button>
@@ -94,7 +94,7 @@
 
 <script>
     import Pagination from "../../components/pagination.vue";
-   // import swal from 'sweetalert';
+
     export default {
         components: {Pagination},
         name: "chapter",
@@ -154,10 +154,11 @@
                 let swal = this.$toast.swal;
                 swal({
                     title: "是否删除?",
-                    text: "删除后不可恢复!您确定删除吗",
+                    text: "删除后不可恢复!您确定删除吗？",
                     icon: "warning",
                     buttons: ["取 消", "确 定"],
                     dangerMode: true,
+                    className: "red-bg",
 
                 })
                     .then((willDelete) => {
@@ -167,20 +168,19 @@
                                 console.log("删除大章结果：",res)
                                 let response = res.data;
                                 if(response.success){
-                                    swal("删除成功!", {
-                                        icon: "success",
-                                       // buttons: "确 定",
-                                    });
+                                    swal({
+                                        text:"删除成功!",
+                                        icon:"success",
+                                        buttons: false,
+                                        timer: 1000,
+
+                                    })
                                     this.list(1)
                                 }else{
                                     swal("删除失败!");
                                 }
                             })
-
                         }
-                        // else {
-                        //     swal("取消删除!");
-                        // }
                     })
             }
 
@@ -188,6 +188,6 @@
     }
 </script>
 
-<style scoped>
+<style>
 
 </style>

@@ -1,0 +1,17 @@
+/*.sweetAlert {*/
+/*    width: 22em;*/
+/*    margin: 0 auto;*/
+/*    top: 300px;*/
+/*    left: 512px;*/
+/*    right: 0;*/
+/*}*/
+
+/*.swal-loading .swal-overlay {*/
+/*    background-color: rgba(43, 165, 137, 0.45);*/
+/*}*/
+
+.swal-loading {
+    background-color: rgba(63,255,106,0);
+    border: 0px solid white;
+    width: 105px;
+}
