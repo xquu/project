@@ -43,5 +43,21 @@ export default {
              closeOnClickOutside: false,
              className: 'swal-loading'
          })
+    },
+
+    confirm: function (message, callback) {
+        Swal({
+            title: "确定?",
+            text: message,
+            icon: "warning",
+            buttons: ["取 消", "确 定"],
+            dangerMode: true
+        }).then((willDelete) => {
+            if (willDelete) {
+               if(callback){
+                   callback()
+               }
+            }
+        })
     }
 }

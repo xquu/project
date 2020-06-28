@@ -137,6 +137,7 @@
             },
 
             save: function () {
+                this.$toast.loading()
                 this.$axios.post("http://127.0.0.1:9000/business/admin/chapter/save",
                 this.chapter).then((res)=>{
                     console.log("添加大章结果：",res)
@@ -151,37 +152,20 @@
 
             del: function (id){
                 console.log(id)
-                let swal = this.$toast.swal;
-                swal({
-                    title: "是否删除?",
-                    text: "删除后不可恢复!您确定删除吗？",
-                    icon: "warning",
-                    buttons: ["取 消", "确 定"],
-                    dangerMode: true,
-                    className: "red-bg",
-
+                let toast = this.$toast;
+                toast.confirm("删除大章后不可恢复!您确定删除吗？", () => {
+                    toast.loading()
+                    this.$axios.delete("http://127.0.0.1:9000/business/admin/chapter/delete/"+ id)
+                        .then((res)=>{
+                            let response = res.data;
+                            if(response.success){
+                                toast.success("删除成功")
+                                this.list(1)
+                            }else{
+                                toast.error("删除失败!")
+                            }
+                        })
                 })
-                    .then((willDelete) => {
-                        if (willDelete) {
-                            this.$axios.delete("http://127.0.0.1:9000/business/admin/chapter/delete/"+ id)
-                                .then((res)=>{
-                                console.log("删除大章结果：",res)
-                                let response = res.data;
-                                if(response.success){
-                                    swal({
-                                        text:"删除成功!",
-                                        icon:"success",
-                                        buttons: false,
-                                        timer: 1000,
-
-                                    })
-                                    this.list(1)
-                                }else{
-                                    swal("删除失败!");
-                                }
-                            })
-                        }
-                    })
             }
 
         }
