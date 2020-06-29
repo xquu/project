@@ -59,5 +59,13 @@ export default {
                }
             }
         })
+    },
+    //Swal.close()方法无效，这里利用延时关闭属性，设置10毫秒后自动关闭。
+    close: function () {
+        Swal({
+            button:false,
+            className: 'swal-close',
+            timer: 10
+        })
     }
 }

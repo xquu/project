@@ -106,8 +106,8 @@
         },
 
         mounted() {
-           this.$refs.pagination.size = 5
-           this.list(1)
+            this.$refs.pagination.size = 5
+            this.list(1)
         },
         methods:{
             /**
@@ -125,14 +125,16 @@
             },
 
             list: function (page) {
+                this.$toast.loading();
                 this.$axios.post("http://127.0.0.1:9000/business/admin/chapter/list",{
                     page:page,
                     size:this.$refs.pagination.size
                 }).then((res)=>{
-                    console.log("查询大章结果：",res)
+                   // console.log("查询大章结果：",res)
                     let content = res.data.content
                     this.chapters = content.list
                     this.$refs.pagination.render(page, content.total);
+                    this.$toast.close();
                 })
             },
 
@@ -159,8 +161,12 @@
                         .then((res)=>{
                             let response = res.data;
                             if(response.success){
-                                toast.success("删除成功")
+                             //  toast.success("删除成功")
+                                toast.swal("ceshi")
                                 this.list(1)
+                                console.log(toast.swal.getState())
+                                toast.swal.stopLoading();
+                                toast.close();
                             }else{
                                 toast.error("删除失败!")
                             }

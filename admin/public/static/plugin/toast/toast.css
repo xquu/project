@@ -15,3 +15,9 @@
     border: 0px solid white;
     width: 105px;
 }
+
+.swal-close {
+    background-color: rgba(63,255,106,0);
+    border: 0px solid white;
+    width: 0px;
+}
