@@ -142,12 +142,13 @@
                 this.$toast.loading()
                 this.$axios.post("http://127.0.0.1:9000/business/admin/chapter/save",
                 this.chapter).then((res)=>{
-                    console.log("添加大章结果：",res)
                     let response = res.data;
                     if(response.success){
                         $("#form-modal").modal("hide");
                         this.$toast.success("保存成功！")
                         this.list(1);
+                    }else{
+                        this.$toast.warning(response.message);
                     }
                 })
             },

@@ -4,6 +4,7 @@ import cn.xquu.project.server.dto.ChapterDto;
 import cn.xquu.project.server.dto.util.PageDto;
 import cn.xquu.project.server.dto.util.ResponseDto;
 import cn.xquu.project.server.service.ChapterService;
+import cn.xquu.project.server.util.ValidatorUtil;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,6 +34,11 @@ public class ChapterController {
 
     @PostMapping("save")
     private ResponseDto save(@RequestBody ChapterDto chapterDto){
+
+        ValidatorUtil.require(chapterDto.getName(),"名称");
+        ValidatorUtil.require(chapterDto.getcourseId(),"名称");
+        ValidatorUtil.length(chapterDto.getcourseId(),"名称",1,8);
+
         ResponseDto responseDto = new ResponseDto();
         chapterService.save(chapterDto);
         responseDto.setContent(chapterDto);

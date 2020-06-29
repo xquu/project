@@ -1,5 +1,5 @@
 import Swal from 'sweetalert'
-import './toast.css'
+import '../css/toast.css'
 export default {
     //使用原生的swal调用此方法
     swal:Swal,
