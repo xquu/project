@@ -1,5 +1,5 @@
 /*
- * 主页路由
+ * 主路由
  */
 // Vue and Vue Router
 import Vue from 'vue'
@@ -8,13 +8,6 @@ const Login = () => import("@/views/login.vue")
 const Admin = () => import("@/views/admin.vue")
 const Welcome = () => import("@/views/admin/welcome.vue")
 import Chapter from "../views/admin/chapter"
-import Axios from "axios"
-Vue.config.productionTip=false
-Vue.prototype.$axios = Axios
-
-import Toast from "../../public/static/js/toast.js"
-Vue.prototype.$toast = Toast
-
 //import Admin from "@/views/admin.vue"
 // Register Vue Router
 Vue.use(Router)
