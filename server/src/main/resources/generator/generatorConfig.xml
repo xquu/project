@@ -21,9 +21,9 @@
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://xquu.cn:33066/project"
+                        connectionURL="jdbc:mysql://m.xquu.cn:33066/project"
                         userId="project"
-                        password="ajrjL5He7tP223r6">
+                        password="3zNKtsDcD2B8Shbt">
         </jdbcConnection>
 
         <!-- domain类的位置 -->
@@ -40,8 +40,8 @@
                              type="XMLMAPPER" />
 
         <!--        <table tableName="test" domainObjectName="Test"/>-->
-                <table tableName="chapter" domainObjectName="Chapter"/>
-        <!--        <table tableName="section" domainObjectName="Section"/>-->
+        <!--        <table tableName="chapter" domainObjectName="Chapter"/>-->
+                <table tableName="section" domainObjectName="Section"/>
         <!--        <table tableName="course" domainObjectName="Course"/>-->
         <!--        <table tableName="course_content" domainObjectName="CourseContent"/>-->
         <!--        <table tableName="course_content_file" domainObjectName="CourseContentFile"/>-->
