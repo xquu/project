@@ -25,7 +25,7 @@ public class ChapterController {
 
     @PostMapping("list")
     //axios默认以流的方式传递参数，这里加上@RequestBody才行
-    private ResponseDto list(@RequestBody PageDto pageDto){
+    public ResponseDto list(@RequestBody PageDto pageDto){
         ResponseDto responseDto = new ResponseDto();
         chapterService.list(pageDto);
         responseDto.setContent(pageDto);
@@ -33,7 +33,7 @@ public class ChapterController {
     }
 
     @PostMapping("save")
-    private ResponseDto save(@RequestBody ChapterDto chapterDto){
+    public ResponseDto save(@RequestBody ChapterDto chapterDto){
 
         ValidatorUtil.require(chapterDto.getName(),"名称");
         ValidatorUtil.require(chapterDto.getcourseId(),"名称");
@@ -46,7 +46,7 @@ public class ChapterController {
     }
 
     @DeleteMapping("delete/{id}")
-    private ResponseDto save(@PathVariable String id){
+    public ResponseDto delete(@PathVariable String id){
         ResponseDto responseDto = new ResponseDto();
         chapterService.delete(id);
         return responseDto;
