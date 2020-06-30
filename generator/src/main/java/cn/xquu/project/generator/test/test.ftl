@@ -1,4 +1,4 @@
-package com.course.generator.test;
+package cn.xquu.project.generator.test;
 
 public class Test {
     /**
