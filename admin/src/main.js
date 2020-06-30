@@ -13,13 +13,15 @@ Vue.prototype.$toast = Toast
 axios.defaults.withCredentials = true;
 
 /**
- * axios拦截器
+ * axios请求拦截器
  */
 axios.interceptors.request.use(function (config) {
   console.log("请求：",config)
   return config;
 })
-
+/**
+ * axios返回拦截器
+ */
 axios.interceptors.response.use(function (response) {
   console.log("返回结果：", response)
   return response
