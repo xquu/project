@@ -15,17 +15,17 @@ axios.defaults.withCredentials = true;
 /**
  * axios请求拦截器
  */
-axios.interceptors.request.use(function (config) {
+axios.interceptors.request.use( (config) => {
   console.log("请求：",config)
-  return config;
-})
+  return config
+},()=>{})
 /**
  * axios返回拦截器
  */
-axios.interceptors.response.use(function (response) {
-  console.log("返回结果：", response)
+axios.interceptors.response.use( (response) => {
+  console.log("返回：", response)
   return response
-})
+},()=>{})
 
 
 
